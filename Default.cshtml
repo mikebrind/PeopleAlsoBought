@@ -1,0 +1,29 @@
+﻿@{
+    Page.Title = "Home";
+    var db = Database.Open("Northwind");
+    var data = db.Query("SELECT CategoryID, CategoryName FROM Categories");
+    var categories = data.Select( c => new SelectListItem {
+            Value = c.CategoryId.ToString(),
+            Text = c.CategoryName
+        });
+}
+
+<div id="selector">
+    @Html.Label("Select Category: ", "categoryId")
+    @Html.DropDownList("categoryId", "Choose Category", categories)
+</div>
+<div id="grid"></div>
+<div id="alsoBought"></div>
+@section script{
+    <script>
+        $(function () {
+            $('#categoryId').change(function () {
+                $('#alsoBought').empty();
+                $('#grid').load('/Products/' + $(this).val());
+            });
+            $(document).on('click', '.alsoBought', function () {
+                $('#alsoBought').load('AlsoBought/' + $(this).attr('id'));
+            })
+        });
+    </script>
+}

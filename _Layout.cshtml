@@ -1,0 +1,20 @@
+﻿@{
+    
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@Page.Title</title>
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+        @RenderSection("script", false)
+    </head>
+    <body>
+        <div id="wrapper">
+            @RenderBody()
+        </div>
+    </body>
+</html>

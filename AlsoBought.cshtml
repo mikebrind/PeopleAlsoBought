@@ -1,0 +1,18 @@
+﻿@{
+    Layout = null;
+    var productId = UrlData[0].IsInt() ? UrlData[0].AsInt() : 1;
+    var db = Database.Open("Northwind");
+    var commandText = @"SELECT TOP 5 ProductName, COUNT(ProductName) AS CountOfProducts FROM OrderDetails 
+                        INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID
+                        WHERE OrderID IN (
+                            SELECT OrderID FROM OrderDetails WHERE ProductID = @0
+                        ) 
+                        AND OrderDetails.ProductID <> @0 
+                        GROUP BY ProductName ORDER BY CountOfProducts DESC";
+    var products = db.Query(commandText, productId);
+}
+
+<h3>Customers who bought this item also bought</h3>
+@foreach(var product in products){
+    <div>@product.ProductName</div>
+}

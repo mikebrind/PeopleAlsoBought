@@ -1,0 +1,75 @@
+body {
+    padding:  0;
+    margin:  0;
+    font:  0.8em "Arial";
+}
+
+#wrapper{
+    width: 1000px;
+    padding:  20px;
+}
+
+
+#selector{
+   
+}
+
+button {
+    width: 120px;
+}
+
+tfoot {
+    border-top: 2px solid #6678b1;
+    border-bottom: 2px solid #6678b1;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.table
+{
+	background: #fff;
+	border-collapse: collapse;
+	text-align: left;
+    width: 650px;
+}
+.table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+
+.table td
+{
+	border-bottom: 1px solid #ccc;
+	padding: 6px 8px;
+}
+.basket {
+    border-collapse: collapse;
+	text-align: left;
+}
+
+.basket th {
+    text-align: left;
+    padding: 0 7px 0 0;
+}
+
+.basket td {
+    padding: 0 7px 0 0;
+}
+
+.right-align {
+    text-align: right;
+}
+
+#viewBasket {
+    border-bottom: 1px dashed #808080;
+}
+
+#viewBasket:hover {
+    cursor: pointer;
+}
