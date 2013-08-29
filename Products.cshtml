@@ -2,7 +2,7 @@
     Layout = null;
     var categoryId = UrlData[0].IsInt() ? UrlData[0].AsInt() : 1;
     var db = Database.Open("Northwind");
-    car commandText = @"SELECT ProductId, ProductName, QuantityPerUnit, UnitPrice FROM Products 
+    var commandText = @"SELECT ProductId, ProductName, QuantityPerUnit, UnitPrice FROM Products 
                         WHERE CategoryID = @0";
     var data = db.Query(commandText, categoryId);
     var grid = new WebGrid(data, canPage: false, canSort: false);
